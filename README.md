@@ -12,20 +12,20 @@ This implementation is for testing purposes, whether your network allows a RTP s
 
 ## Installing the patch
 
-At least Asterisk 13 is required. These changes were last tested with Asterisk 13.14 (and Asterisk 14.3). If you use a newer version and the patch fails, please, [report](https://help.github.com/articles/creating-an-issue/)!
+At least Asterisk 13 is required. These changes were last tested with Asterisk 13.22 (and Asterisk 16.0). If you use a newer version and the patch fails, please, [report](https://help.github.com/articles/creating-an-issue/)!
 
 	cd /usr/src/
 	wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz
 	tar zxf ./asterisk*
 	cd ./asterisk*
-	sudo apt-get --assume-yes install build-essential libssl-dev libncurses-dev libnewt-dev libxml2-dev libsqlite3-dev uuid-dev libjansson-dev libblocksruntime-dev xmlstarlet
+	sudo apt --no-install-recommends --assume-yes install build-essential pkg-config libedit-dev libjansson-dev libsqlite3-dev uuid-dev libxslt1-dev xmlstarlet
 
 Apply the patch:
 
 	wget github.com/traud/asterisk-alaw16/archive/master.zip
 	unzip -qq master.zip
 	rm master.zip
-	cp --verbose --recursive ./asterisk-alaw16/* ./
+	cp --verbose --recursive ./asterisk-alaw16*/* ./
 	patch -p0 <./alaw16_pass_through.patch
 	patch -p0 <./alaw16_transcoding.patch
 
