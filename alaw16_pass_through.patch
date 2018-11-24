@@ -28,7 +28,7 @@
 +
  static int gsm_samples(struct ast_frame *frame)
 @@ -887,2 +901,4 @@ int ast_codec_builtin_init(void)
- 
+ 	res |= CODEC_REGISTER_AND_CACHE(codec2);
 +	res |= CODEC_REGISTER_AND_CACHE(alaw16);
 +
  	res |= CODEC_REGISTER_AND_CACHE(g723);
